@@ -65,11 +65,11 @@ jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_createConnect(
   if (!isCopy)
     throw runtime_error("JNI GetStringUTFChars copy is not made");
   int result = SmartBusNetCli_CreateConnect(
-                 (unsigned char) local_clientid, (int) local_clienttype,
-                 pc_masterip, (unsigned short) master_port,
-                 pc_slaverip, (unsigned short) slaver_port,
-                 pc_author_username, pc_author_pwd, pc_add_info
-               );
+    (unsigned char) local_clientid, (int) local_clienttype,
+    pc_masterip, (unsigned short) master_port,
+    pc_slaverip, (unsigned short) slaver_port,
+    pc_author_username, pc_author_pwd, pc_add_info
+    );
   env->ReleaseStringUTFChars(slaver_ip, pc_masterip);
   env->ReleaseStringUTFChars(slaver_ip, pc_slaverip);
   env->ReleaseStringUTFChars(author_username, pc_author_username);
@@ -93,10 +93,10 @@ jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_launchFlow(
   if (!isCopy)
     throw runtime_error("JNI GetStringUTFChars copy is not made");
   int result = SmartBusNetCli_RemoteInvokeFlow(
-                 (unsigned char) local_client_id, (int) server_unit_id,
-                 (int) ipsc_index, pc_project_id, pc_flow_id, (int) mode,
-                 (int) timeout, pc_value_list
-               );
+    (unsigned char) local_client_id, (int) server_unit_id,
+    (int) ipsc_index, pc_project_id, pc_flow_id, (int) mode,
+    (int) timeout, pc_value_list
+    );
   env->ReleaseStringUTFChars(project_id, pc_project_id);
   env->ReleaseStringUTFChars(flow_id, pc_flow_id);
   env->ReleaseStringUTFChars(value_list, pc_value_list);
@@ -115,9 +115,9 @@ jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_sendNotification(
     throw runtime_error("JNI GetStringUTFChars copy is not made");
   const char* pc_param = env->GetStringUTFChars(param, &isCopy);
   int result = SmartBusNetCli_SendNotify(
-                 (unsigned char) local_client_id, (int) server_unit_id, (int) ipsc_index, pc_project_id,
-                 pc_title, (int) mode, (int) expires, pc_param
-               );
+    (unsigned char) local_client_id, (int) server_unit_id, (int) ipsc_index, pc_project_id,
+    pc_title, (int) mode, (int) expires, pc_param
+    );
   if (!isCopy)
     throw runtime_error("JNI GetStringUTFChars copy is not made");
   env->ReleaseStringUTFChars(project_id, pc_project_id);
@@ -126,10 +126,9 @@ jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_sendNotification(
   return (jint) result;
 }
 
-jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_sendData(JNIEnv * env,
-    jclass cls, jbyte local_client_id, jbyte cmd, jbyte cmd_type,
-    jint dst_unit_id, jint dst_client_id, jint dst_client_type,
-    jbyteArray data) {
+jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_sendData(
+  JNIEnv * env, jclass cls, jbyte local_client_id, jbyte cmd, jbyte cmd_type,
+  jint dst_unit_id, jint dst_client_id, jint dst_client_type, jbyteArray data) {
   jsize data_sz = env->GetArrayLength(data);
   jboolean isCopy;
   jbyte *buf = env->GetByteArrayElements(data, &isCopy);
