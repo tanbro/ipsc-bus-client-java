@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   globvars.h
  * Author: 雪彦
  *
@@ -21,18 +21,18 @@ extern "C" {
 #endif
 
 
-    extern JavaVM *jvm;
+extern JavaVM *jvm;
 
-    extern jclass cls_client;
-    
-    extern jmethodID meth_client_recvdata;    
-    extern jmethodID meth_client_connect;
-    extern jmethodID meth_client_disconnect;
-    extern jmethodID meth_client_globalconenct;
-    extern jmethodID meth_client_log;
-    
-    extern jclass cls_head;
-    extern jmethodID meth_head;
+extern jclass cls_client;
+
+extern jmethodID meth_client_recvdata;
+extern jmethodID meth_client_connect;
+extern jmethodID meth_client_disconnect;
+extern jmethodID meth_client_globalconenct;
+extern jmethodID meth_client_log;
+
+extern jclass cls_head;
+extern jmethodID meth_head;
 
 
 #ifdef __cplusplus
