@@ -1,18 +1,12 @@
 #include "callbacks.h"
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <jni.h>
 #include <pthread.h>
 
-#define GCC_VERSION (__GNUC__ * 10000 \
-                     + __GNUC_MINOR__ * 100 \
-                     + __GNUC_PATCHLEVEL__)
-#if GCC_VERSION >= 40500
-#include <exception>
-#else
 #include <stdexcept>
-#endif
 
 #include "globvars.h"
 

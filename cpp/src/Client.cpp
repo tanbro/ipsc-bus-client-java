@@ -6,16 +6,10 @@
  */
 
 #include "com_hesong_ipsc_busnetcli_Client.h"
+
 #include <stdbool.h>
 
-#define GCC_VERSION (__GNUC__ * 10000 \
-               + __GNUC_MINOR__ * 100 \
-               + __GNUC_PATCHLEVEL__)
-#if GCC_VERSION >= 40500
-#include <exception>
-#else
 #include <stdexcept>
-#endif
 
 #include <smartbus_netcli_interface.h>
 #include "globvars.h"
