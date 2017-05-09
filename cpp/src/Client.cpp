@@ -1,11 +1,11 @@
 /*
  * Client.c
  *
- *  Created on: 2016年7月11日
+ *  Created on: 2016-7-11
  *      Author: liuxy
  */
 
-#include "Client.h"
+#include "com_hesong_ipsc_busnetcli_Client.h"
 #include <stdbool.h>
 
 #define GCC_VERSION (__GNUC__ * 10000 \
@@ -23,8 +23,7 @@
 
 using namespace std;
 
-jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_initiateLibrary(
-  JNIEnv * env, jclass cls, jbyte unit_id) {
+jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_initiateLibrary(JNIEnv * env, jclass cls, jbyte unit_id) {
   env->GetJavaVM(&jvm);
   // Get Client Class
   cls_client = cls;
@@ -35,29 +34,23 @@ jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_initiateLibrary(
     return (jint) result;
   }
   // Set callbacks
-  meth_client_globalconenct = env->GetStaticMethodID(cls,
-                                                     "callbackGlobalConnect", "(BBBBLjava/lang/String;)V");
-  meth_client_connect = env->GetStaticMethodID(cls, "callbackConnect",
-                                               "(BII)V");
-  meth_client_disconnect = env->GetStaticMethodID(cls,
-                                                  "callbackDisconnect", "(B)V");
-  meth_client_recvdata = env->GetStaticMethodID(cls, "callbackData",
-                                                "(BBBBBBBB[B)V");
-  meth_client_log = env->GetStaticMethodID(cls, "callbackLog",
-                                           "([BZ)V");
-  SmartBusNetCli_SetCallBackFn(connection, recvdata, disconnect, NULL,
-                               global_connect, NULL);
+  meth_client_globalconenct = env->GetStaticMethodID(cls, "callbackGlobalConnect", "(BBBBLjava/lang/String;)V");
+  meth_client_connect = env->GetStaticMethodID(cls, "callbackConnect", "(BII)V");
+  meth_client_disconnect = env->GetStaticMethodID(cls, "callbackDisconnect", "(B)V");
+  meth_client_recvdata = env->GetStaticMethodID(cls, "callbackData", "(BBBBBBBB[B)V");
+  meth_client_log = env->GetStaticMethodID(cls, "callbackLog", "([BZ)V");
+  SmartBusNetCli_SetCallBackFn(connection, recvdata, disconnect, NULL, global_connect, NULL);
   SmartBusNetCli_SetTraceStr(trace, trace_err);
   return (jint) result;
 }
 
-void JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_releaseLibrary(
+void JNICALL Java_com_hesong_ipsc_busnetcli_Client_releaseLibrary(
   JNIEnv * env, jclass cls) {
   cls_client = NULL;
   SmartBusNetCli_Release();
 }
 
-jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_createConnect(
+jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_createConnect(
   JNIEnv * env, jclass cls, jbyte local_clientid, jint local_clienttype,
   jstring master_ip, jshort master_port, jstring slaver_ip,
   jshort slaver_port, jstring author_username, jstring author_pwd,
@@ -92,7 +85,7 @@ jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_createConnect(
   return (jint) result;
 }
 
-jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_launchFlow(
+jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_launchFlow(
   JNIEnv * env, jclass cls, jbyte local_client_id, jint server_unit_id,
   jint ipsc_index, jstring project_id, jstring flow_id, jint mode,
   jint timeout, jstring value_list) {
@@ -117,7 +110,7 @@ jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_launchFlow(
   return (jint) result;
 }
 
-jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_sendNotification(
+jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_sendNotification(
   JNIEnv * env, jclass cls, jbyte local_client_id, jint server_unit_id,
   jint ipsc_index, jstring project_id, jstring title, jint mode, jint expires, jstring param) {
   jboolean isCopy;
@@ -140,10 +133,10 @@ jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_sendNotification(
   return (jint) result;
 }
 
-jint JNICALL Java_com_lsxy_app_area_cti_busnetcli_Client_sendData(JNIEnv * env,
-                                                                  jclass cls, jbyte local_client_id, jbyte cmd, jbyte cmd_type,
-                                                                  jint dst_unit_id, jint dst_client_id, jint dst_client_type,
-                                                                  jbyteArray data) {
+jint JNICALL Java_com_hesong_ipsc_busnetcli_Client_sendData(JNIEnv * env,
+                                                            jclass cls, jbyte local_client_id, jbyte cmd, jbyte cmd_type,
+                                                            jint dst_unit_id, jint dst_client_id, jint dst_client_type,
+                                                            jbyteArray data) {
   jsize data_sz = env->GetArrayLength(data);
   jboolean isCopy;
   jbyte *buf = env->GetByteArrayElements(data, &isCopy);
