@@ -1,4 +1,4 @@
-PROJECT(busnetcli-jni)
+PROJECT(ipsc-bus-client-jni)
 
 cmake_minimum_required(VERSION 2.8)
 

@@ -89,7 +89,7 @@ public class Client {
                                       int dstClientType, byte[] data);
 
     static {
-        System.loadLibrary("busnetcli-jni");
+        System.loadLibrary("ipsc-bus-client-jni");
     }
 
     static private Callbacks callbacks = null;
