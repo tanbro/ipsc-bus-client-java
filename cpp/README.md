@@ -4,9 +4,9 @@ Java Native Interface(C++ language) shared/dynamic-load library for IPSC's data-
 
 ## 补充说明
 
-这是一个 JNI 项目，它是使用 `C` 语言的！
+这是一个 JNI 项目，它是使用 `C++` 语言的！
 
-JNI 的 Java 类声明和相关内容在包 `com.lsxy.app.area.cti.busnetcli` 中，请参考项目 `app-area-agent-cti`.
+JNI 的 Java 类声明和相关内容在 `com.hesong.ipsc.busnetcli.Client` 中.
 
 ## 开发环境
 
@@ -21,7 +21,7 @@ JNI 的 Java 类声明和相关内容在包 `com.lsxy.app.area.cti.busnetcli` �
 
 2 进入项目所在目录，然后执行：
 
-```sh
+```shell
 # 建立一个构建目录：
 mkdir -p build
 # 进入构建目录：
