@@ -14,3 +14,16 @@
 
 ## 作用
 开发人员可以使用这个库，配合 IPSC 逻辑流程，构建 CTI 程序，如：基于 IPSC Common CTI Flow (CCF) 的 Java CTI服务程序。
+
+## 编译
+首先安装 maven，然后：
+
+### 1. 安装依赖包
+```
+$ mvn install
+```
+
+### 2. 生成 jar 包
+```
+$ mvn package
+```
