@@ -20,16 +20,19 @@
 extern "C" {
 #endif
 
-void WINAPI connection(void * arg, unsigned char local_client_id, int accesspoint_unit_id, int ack);
-void WINAPI disconnect(void * arg, unsigned char local_client_id);
-void WINAPI recvdata(void * arg, unsigned char local_client_id, SMARTBUS_PACKET_HEAD * head, void * data, int size);
-void WINAPI global_connect(void * arg, char unitid, char clientid, char clienttype, char accesspoint_unit, char status, const char * add_info);
-void WINAPI trace(const char * msg);
-void WINAPI trace_err(const char * msg);
+void WINAPI connection(void* arg, unsigned char local_client_id,
+                       int accesspoint_unit_id, int ack);
+void WINAPI disconnect(void* arg, unsigned char local_client_id);
+void WINAPI recvdata(void* arg, unsigned char local_client_id,
+                     SMARTBUS_PACKET_HEAD* head, void* data, int size);
+void WINAPI global_connect(void* arg, char unitid, char clientid,
+                           char clienttype, char accesspoint_unit, char status,
+                           const char* add_info);
+void WINAPI trace(const char* msg);
+void WINAPI trace_err(const char* msg);
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* CALLBACKS_H */
-

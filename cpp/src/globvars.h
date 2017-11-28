@@ -20,7 +20,6 @@
 extern "C" {
 #endif
 
-
 extern JavaVM *jvm;
 
 extern jclass cls_client;
@@ -34,10 +33,8 @@ extern jmethodID meth_client_log;
 extern jclass cls_head;
 extern jmethodID meth_head;
 
-
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* GLOBVARS_H */
-
