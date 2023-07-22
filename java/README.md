@@ -6,24 +6,29 @@
 
 ## 特点
 
-- 采用 JNI 技术直接封装 CTI Bus 的C语言实现客户端
-- 完整的 `IPSC` data-bus 客户端功能包装。其功能基本上与C语言实现客户端一对一。
+- JNI 直接封装 CTI Bus 的C语言实现客户端
+- 完整的 `IPSC` data-bus 客户端功能包装。其功能基本上与C语言实现的原生客户端一一对应。
 
 ## 基础
-见： http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html
+
+见： <http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html>
 
 ## 作用
+
 开发人员可以使用这个库，配合 IPSC 逻辑流程，构建 CTI 程序，如：基于 IPSC Common CTI Flow (CCF) 的 Java CTI服务程序。
 
 ## 编译
+
 首先安装 maven，然后：
 
-### 1. 安装依赖包
-```
-$ mvn install
+### 安装依赖包
+
+```sh
+mvn install
 ```
 
-### 2. 生成 jar 包
-```
-$ mvn package
+### 生成 jar 包
+
+```sh
+mvn package
 ```
